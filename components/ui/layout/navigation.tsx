@@ -1,4 +1,4 @@
-import { GetCategoryList } from "@/lib/actions";
+import { getCategoryList } from "@/lib/actions";
 import { Category, CatLink } from "@/lib/definitions";
 import { Navigation } from "./nav-links";
 
@@ -10,7 +10,7 @@ function formatCategories(cats: Category[]) {
 }
 
 export async function CategoryNavigation() {
-  const rawCats = await GetCategoryList();
+  const rawCats = await getCategoryList();
 
   const categories = formatCategories(rawCats);
 
