@@ -23,7 +23,7 @@ export function Navigation({ categories }: { categories: NavigationProps[] }) {
         <NavigationMenuItem className="hidden md:flex">
           <NavigationMenuTrigger>Categories</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+            <ul className="grid w-100 gap-2 md:w-125 md:grid-cols-2 lg:w-150">
               {categories.map((cat) => (
                 <ListItem key={cat.title} title={cat.title} href={cat.href} />
               ))}
