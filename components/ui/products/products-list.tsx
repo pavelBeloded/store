@@ -8,10 +8,13 @@ export async function ProductsList({
   query: string;
   currentPage: number;
 }) {
-  const products = await getFilteredProducts(query, currentPage);
+  const { products, totalPages } = await getFilteredProducts(
+    query,
+    currentPage,
+  );
 
   return (
-    <div className="grid grid-cols-3 columns-xs">
+    <div className="grid grid-cols-4 columns-xs gap-4">
       {products.map((product) => (
         <ProductCard key={product.id} {...product} />
       ))}

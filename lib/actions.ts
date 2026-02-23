@@ -14,11 +14,11 @@ export async function getCategoryList(): Promise<Category[]> {
   return res.json();
 }
 
-const ITEMS_PER_PAGE = 9;
+const ITEMS_PER_PAGE = 8;
 export async function getFilteredProducts(
   query: string,
   currentPage: number,
-): Promise<ProductCardData[]> {
+): Promise<{ products: ProductCardData[]; totalPages: number }> {
   const offset = (currentPage - 1) * ITEMS_PER_PAGE;
   const res = await fetch(
     `https://dummyjson.com/products/search?q=${query}&limit=${ITEMS_PER_PAGE}&skip=${offset}`,
@@ -32,5 +32,16 @@ export async function getFilteredProducts(
 
   const ProductListSchema = z.array(ProductCardSchema);
 
-  return ProductListSchema.parse(data.products);
+  return {
+    products: ProductListSchema.parse(data.products),
+    totalPages: data.total,
+  };
+}
+
+export async function getTotalPages(query: string) {
+  const res = await fetch(
+    `https://dummyjson.com/products/search?q=${query}&limit=1`,
+  );
+  const data = await res.json();
+  return Math.ceil(data.total / ITEMS_PER_PAGE);
 }
