@@ -12,7 +12,7 @@ import { Suspense } from "react";
 import Image from "next/image";
 import { ShoppingCart } from "lucide-react";
 
-export function ProductCard({ id, title, price, thumbnail }: ProductCardData) {
+export function ProductCard({ title, price, thumbnail }: ProductCardData) {
   return (
     <Card>
       <CardHeader>
