@@ -8,10 +8,7 @@ export async function ProductsList({
   query: string;
   currentPage: number;
 }) {
-  const { products, totalPages } = await getFilteredProducts(
-    query,
-    currentPage,
-  );
+  const { products } = await getFilteredProducts(query, currentPage);
 
   return (
     <div className="grid grid-cols-4 columns-xs gap-4">
