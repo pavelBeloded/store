@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/sheet";
 import { Filter } from "lucide-react";
 import { getCategoryList } from "@/lib/actions";
-import { Category } from "./category";
+import { Category } from "../products/category";
 
 export default async function CategoryFilter() {
   const categories = await getCategoryList();

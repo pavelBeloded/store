@@ -1,11 +1,11 @@
-import Filter from "@/components/ui/products/category-filter";
-import Pagination from "@/components/ui/products/pagination";
 import { ProductsList } from "@/components/ui/products/products-list";
 import { getTotalPages } from "@/lib/actions";
 import { redirect } from "next/navigation";
 import { Suspense } from "react";
 import { ProductGridSkeleton } from "@/components/ui/products/products-skeleton";
-import Sort from "@/components/ui/products/products-sort";
+import Filter from "@/components/ui/home/category-filter";
+import Pagination from "@/components/ui/products/pagination";
+import Sort from "@/components/ui/home/products-sort";
 
 export default async function Home(props: {
   searchParams?: Promise<{
@@ -40,8 +40,8 @@ export default async function Home(props: {
 
         <div className="flex gap-2">
           <Filter />
-
           <Sort />
+          {/* <Cart /> */}
         </div>
       </div>
 
