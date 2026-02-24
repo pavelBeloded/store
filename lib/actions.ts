@@ -19,14 +19,19 @@ export async function getFilteredProducts(
   query: string,
   category: string,
   currentPage: number,
+  sort: string,
 ): Promise<{ products: ProductCardData[]; totalPages: number }> {
   const offset = (currentPage - 1) * ITEMS_PER_PAGE;
+  const [sortBy, order] = sort ? sort.split("-") : ["", ""];
+
   let url = "";
+  const pages = `limit=${ITEMS_PER_PAGE}&skip=${offset}`;
+  const sortQuery = `sortBy=${sortBy}&order=${order}`;
 
   if (category && category !== "all") {
-    url = `https://dummyjson.com/products/category/${category}?limit=${ITEMS_PER_PAGE}&skip=${offset}`;
+    url = `https://dummyjson.com/products/category/${category}?${pages}&${sortQuery}`;
   } else {
-    url = `https://dummyjson.com/products/search?q=${query}&limit=${ITEMS_PER_PAGE}&skip=${offset}`;
+    url = `https://dummyjson.com/products/search?q=${query}&${pages}&${sortQuery}`;
   }
 
   const res = await fetch(url);

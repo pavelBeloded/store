@@ -1,24 +1,26 @@
-import { Button } from "@/components/ui/button";
 import Filter from "@/components/ui/products/category-filter";
 import Pagination from "@/components/ui/products/pagination";
 import { ProductsList } from "@/components/ui/products/products-list";
 import { getTotalPages } from "@/lib/actions";
-import { SortAsc } from "lucide-react";
 import { redirect } from "next/navigation";
 import { Suspense } from "react";
 import { ProductGridSkeleton } from "@/components/ui/products/products-skeleton";
+import Sort from "@/components/ui/products/products-sort";
 
 export default async function Home(props: {
   searchParams?: Promise<{
     query?: string;
     page?: string;
     category?: string;
+    sort?: string;
   }>;
 }) {
   const searchParams = await props.searchParams;
   const query = searchParams?.query || "";
   const currentPage = Number(searchParams?.page) || 1;
   const category = searchParams?.category || "";
+  const sort = searchParams?.sort || "";
+
   const totalPages = await getTotalPages(query, category);
 
   if (currentPage > totalPages && totalPages > 0) {
@@ -39,10 +41,7 @@ export default async function Home(props: {
         <div className="flex gap-2">
           <Filter />
 
-          <Button data-icon="inline-start">
-            <SortAsc />
-            Sort
-          </Button>
+          <Sort />
         </div>
       </div>
 
@@ -51,6 +50,7 @@ export default async function Home(props: {
           category={category}
           query={query}
           currentPage={currentPage}
+          sort={sort}
         />
       </Suspense>
 
