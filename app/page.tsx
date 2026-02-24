@@ -1,20 +1,31 @@
 import { Button } from "@/components/ui/button";
+import Filter from "@/components/ui/products/category-filter";
 import Pagination from "@/components/ui/products/pagination";
 import { ProductsList } from "@/components/ui/products/products-list";
 import { getTotalPages } from "@/lib/actions";
-import { Filter, SortAsc } from "lucide-react";
+import { SortAsc } from "lucide-react";
+import { redirect } from "next/navigation";
 import { Suspense } from "react";
 
 export default async function Home(props: {
   searchParams?: Promise<{
     query?: string;
     page?: string;
+    category?: string;
   }>;
 }) {
   const searchParams = await props.searchParams;
   const query = searchParams?.query || "";
   const currentPage = Number(searchParams?.page) || 1;
-  const totalPages = await getTotalPages(query);
+  const category = searchParams?.category || "";
+  const totalPages = await getTotalPages(query, category);
+
+  if (currentPage > totalPages && totalPages > 0) {
+    const params = new URLSearchParams(searchParams);
+    params.set("page", "1");
+
+    redirect(`/?${params.toString()}`);
+  }
 
   return (
     <main className="max-w-7xl m-auto py-10 px-4">
@@ -25,10 +36,7 @@ export default async function Home(props: {
         </div>
 
         <div className="flex gap-2">
-          <Button data-icon="inline-start">
-            <Filter />
-            Filter
-          </Button>
+          <Filter />
 
           <Button data-icon="inline-start">
             <SortAsc />
@@ -38,7 +46,11 @@ export default async function Home(props: {
       </div>
 
       <Suspense fallback={<div>Loading...</div>}>
-        <ProductsList query={query} currentPage={currentPage} />
+        <ProductsList
+          category={category}
+          query={query}
+          currentPage={currentPage}
+        />
       </Suspense>
 
       <div className="mt-5 flex w-full justify-center">

@@ -1,6 +1,5 @@
 import { Search, ShoppingCart, Store } from "lucide-react";
 import Link from "next/link";
-import { CategoryNavigation } from "./navigation";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
@@ -14,8 +13,6 @@ export function Header() {
             <span className="font-bold text-lg">Store</span>
           </div>
         </Link>
-
-        <CategoryNavigation />
 
         <div className="flex items-center gap-2">
           <Button variant="ghost" size="icon">
