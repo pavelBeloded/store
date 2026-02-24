@@ -1,11 +1,14 @@
 import { Button } from "@/components/ui/button";
 import Filter from "@/components/ui/products/category-filter";
+import { ProductCardSkeleton } from "@/components/ui/products/card-skeleton";
 import Pagination from "@/components/ui/products/pagination";
 import { ProductsList } from "@/components/ui/products/products-list";
 import { getTotalPages } from "@/lib/actions";
 import { SortAsc } from "lucide-react";
 import { redirect } from "next/navigation";
 import { Suspense } from "react";
+import { ProductGridSkeleton } from "@/components/ui/products/products-skeleton";
+import { FilterButtonsSkeleton } from "@/components/ui/products/filter-skeleton";
 
 export default async function Home(props: {
   searchParams?: Promise<{
@@ -45,7 +48,7 @@ export default async function Home(props: {
         </div>
       </div>
 
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<ProductGridSkeleton />}>
         <ProductsList
           category={category}
           query={query}
