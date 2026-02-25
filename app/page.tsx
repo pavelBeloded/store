@@ -32,13 +32,13 @@ export default async function Home(props: {
 
   return (
     <main className="max-w-7xl m-auto py-10 px-4">
-      <div className="flex justify-between items-end mb-10">
-        <div>
+      <div className="sm:flex justify-between items-end mb-10 sm:flex-row ">
+        <div className="mb-10">
           <h3 className="font-bold text-3xl mb-1">Featured Products</h3>
           <h4 className="text-muted-foreground text-xl">Items just for you</h4>
         </div>
 
-        <div className="flex gap-2 relative">
+        <div className="flex gap-2 relative justify-end">
           <Filter />
           <Sort />
           <Cart />

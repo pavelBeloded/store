@@ -21,7 +21,9 @@ export default async function ProductPage({
 
   return (
     <main className="max-w-7xl mx-auto py-10 px-4 sm:px-6 lg:px-8">
-      <BackButton />
+      <div className="mb-4">
+        <BackButton />
+      </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         <div className="space-y-4">
           <div className="relative aspect-square overflow-hidden rounded-xl border bg-muted">

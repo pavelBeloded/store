@@ -14,7 +14,9 @@ export default function CartPage() {
 
   return (
     <main className="max-w-4xl mx-auto py-10 px-4">
-      <BackButton />
+      <div className="mb-4">
+        <BackButton />
+      </div>
       <h1 className="text-3xl font-bold mb-8">Your Cart</h1>
       <div className="space-y-4">
         {items.map((item) => (
