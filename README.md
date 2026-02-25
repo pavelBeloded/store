@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛒 Next.js Store
+---
+[Demo](https://store-xi-ochre-51.vercel.app/)
+---
+## ✨ Key Features
 
-## Getting Started
+* **Server-Side Data Fetching**: Optimized product delivery using Next.js Server Components.
+* **Type-Safe Architecture**: Strict data validation using **Zod** schemas for all API responses.
+* **Global State Management**: Persistent shopping cart powered by **Zustand**.
+* **Dynamic Filtering & Search**: URL-state driven category filtering, and sorting.
+* **UI**: Design using **Tailwind CSS** and **Shadcn UI**.
+* **UX**: 
+    * `Suspense` boundaries with **Skeleton** loading states.
+    * Smart pagination with automatic redirect for invalid pages.
+    * Not-Found and Error pages
+## 🛠️ Tech Stack
 
-First, run the development server:
+* **Framework**: [Next.js (App Router)](https://nextjs.org/)
+* **Validation**: [Zod](https://zod.dev/)
+* **State Management**: [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction)
+* **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+* **UI Components**: [Shadcn UI](https://ui.shadcn.com/)
+* **Icons**: [Lucide React](https://lucide.dev/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Getting Started
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1.  **Clone the repository**:
+    ```bash
+    git clone https://github.com/pavelBeloded/store.git
+    cd store
+    ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+2.  **Install dependencies**:
+    ```bash
+    pnpm install
+    ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3.  **Run the development server**:
+    ```bash
+    pnpm dev
+    ```
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4.  **Open the app**:
+    Navigate to [http://localhost:3000](http://localhost:3000) to see your store in action.
