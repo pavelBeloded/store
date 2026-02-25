@@ -1,18 +1,6 @@
-import { ProductCardData } from "@/lib/definitions";
+import { CartState, ProductCardData } from "@/lib/definitions";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-
-interface CartItem extends ProductCardData {
-  quantity: number;
-}
-
-interface CartState {
-  items: CartItem[];
-  addItem: (product: ProductCardData) => void;
-  removeItem: (id: number) => void;
-  removeOneItem: (id: number) => void;
-  clearCart: () => void;
-}
 
 export const useCartStore = create<CartState>()(
   persist(

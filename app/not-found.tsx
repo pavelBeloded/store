@@ -15,8 +15,8 @@ export default function NotFound() {
         {`Sorry, we couldn't find the page you're looking for. It might have been moved or deleted.`}
       </p>
       <div className="mt-8">
-        <Button asChild size="lg">
-          <Link href="/">Return to Home</Link>
+        <Button onClick={() => window.history.back()} size="lg">
+          Return to Home
         </Button>
       </div>
     </div>
