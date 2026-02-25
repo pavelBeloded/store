@@ -6,7 +6,7 @@ import { ProductGridSkeleton } from "@/components/ui/products/products-skeleton"
 import Filter from "@/components/ui/home/category-filter";
 import Pagination from "@/components/ui/products/pagination";
 import Sort from "@/components/ui/home/products-sort";
-
+import Cart from "@/components/ui/home/cart-button";
 export default async function Home(props: {
   searchParams?: Promise<{
     query?: string;
@@ -38,10 +38,10 @@ export default async function Home(props: {
           <h4 className="text-muted-foreground text-xl">Items just for you</h4>
         </div>
 
-        <div className="flex gap-2">
+        <div className="flex gap-2 relative">
           <Filter />
           <Sort />
-          {/* <Cart /> */}
+          <Cart />
         </div>
       </div>
 

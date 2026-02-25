@@ -6,11 +6,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { ShoppingCart } from "lucide-react";
+import { AddToCartButton } from "../home/add-to-cart-button";
 
-export function ProductCard({ title, price, thumbnail }: ProductCardData) {
+export function ProductCard({ id, title, price, thumbnail }: ProductCardData) {
   return (
     <Card className="group h-full overflow-hidden flex flex-col transition-all hover:shadow-lg">
       <div className="relative aspect-square overflow-hidden bg-muted">
@@ -34,10 +33,7 @@ export function ProductCard({ title, price, thumbnail }: ProductCardData) {
       </CardHeader>
 
       <CardFooter className="pt-0">
-        <Button className="w-full gap-2 transition-colors" size="sm">
-          <ShoppingCart className="h-4 w-4" />
-          Add to Cart
-        </Button>
+        <AddToCartButton product={{ id, title, price, thumbnail }} />
       </CardFooter>
     </Card>
   );
