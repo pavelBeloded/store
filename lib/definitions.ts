@@ -1,5 +1,9 @@
 import z from "zod";
-import { ProductCardSchema, ProductSchema } from "./schemes";
+import {
+  ProductCardSchema,
+  ProductDetailSchema,
+  ProductSchema,
+} from "./schemes";
 
 export type Category = string;
 
@@ -22,3 +26,4 @@ export interface CartState {
 
 export type Product = z.infer<typeof ProductSchema>;
 export type ProductCardData = z.infer<typeof ProductCardSchema>;
+export type ProductDetail = z.infer<typeof ProductDetailSchema>;

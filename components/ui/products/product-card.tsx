@@ -12,7 +12,7 @@ import Link from "next/link";
 
 export function ProductCard({ id, title, price, thumbnail }: ProductCardData) {
   return (
-    <Link href={`/products/${id}`}>
+    <Link href={`/product/${id}`}>
       <Card className="group h-full overflow-hidden flex flex-col transition-all hover:shadow-lg">
         <div className="relative aspect-square overflow-hidden bg-muted">
           <Image

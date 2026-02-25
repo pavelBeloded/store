@@ -52,3 +52,25 @@ export const ProductCardSchema = ProductSchema.pick({
   price: true,
   thumbnail: true,
 });
+
+export const ProductDetailSchema = ProductSchema.pick({
+  id: true,
+  title: true,
+  description: true,
+  category: true,
+  price: true,
+  discountPercentage: true,
+  rating: true,
+  stock: true,
+  brand: true,
+  sku: true,
+  weight: true,
+  dimensions: true,
+  warrantyInformation: true,
+  shippingInformation: true,
+  availabilityStatus: true,
+  reviews: true,
+  returnPolicy: true,
+  images: true,
+  thumbnail: true,
+});

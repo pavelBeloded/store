@@ -2,7 +2,8 @@
 
 import { Category, ProductCardData } from "./definitions";
 import { z } from "zod";
-import { ProductCardSchema } from "./schemes";
+import { ProductCardSchema, ProductDetailSchema } from "./schemes";
+import { notFound } from "next/navigation";
 
 export async function getCategoryList(): Promise<Category[]> {
   const res = await fetch("https://dummyjson.com/products/category-list");
@@ -61,4 +62,19 @@ export async function getTotalPages(query: string, category: string) {
   const res = await fetch(url);
   const data = await res.json();
   return Math.ceil(data.total / ITEMS_PER_PAGE);
+}
+
+export async function getProductById(id: string) {
+  console.log(id);
+  const res = await fetch(`https://dummyjson.com/products/${id}`);
+  if (!res.ok) {
+    if (res.status === 404) {
+      notFound();
+    }
+
+    throw new Error("Failed to fetch product data");
+  }
+
+  const data = await res.json();
+  return ProductDetailSchema.parse(data);
 }
