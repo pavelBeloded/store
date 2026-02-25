@@ -1,4 +1,4 @@
-import { CartState, ProductCardData } from "@/lib/definitions";
+import { CartState } from "@/lib/definitions";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
