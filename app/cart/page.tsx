@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useCartStore } from "../store/use-cart-store";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { BackButton } from "@/components/ui/back-button";
 
 export default function CartPage() {
   const { items, removeItem, clearCart } = useCartStore();
@@ -14,9 +14,7 @@ export default function CartPage() {
 
   return (
     <main className="max-w-4xl mx-auto py-10 px-4">
-      <Button className="mb-10">
-        <Link href="/">Back to Home Page</Link>
-      </Button>
+      <BackButton />
       <h1 className="text-3xl font-bold mb-8">Your Cart</h1>
       <div className="space-y-4">
         {items.map((item) => (
